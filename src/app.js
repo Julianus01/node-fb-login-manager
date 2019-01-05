@@ -2,7 +2,6 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import cors from 'cors'
-import PostController from './controllers/PostController'
 import PingController from './controllers/PingController'
 import { getDbURL } from './db_config'
 import UserController from './controllers/UserController'
@@ -33,7 +32,6 @@ class App {
   mountRoutes() {
     this.app.use('/', PingController)
     this.app.use('/api/v1/user', UserController)
-    this.app.use('/api/v1/posts', PostController)
   }
 
   initializeFirebase() {

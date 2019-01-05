@@ -7,7 +7,11 @@ class AuthService {
 
   updateUserData = async user => {
     try {
-      await User.updateOne({ uid: user.uid }, { $set: user });
+      await User.updateOne(
+        { uid: user.uid },
+        { $set: user },
+        { upsert: true },
+      );
     } catch (error) {
       console.log(error)
     }

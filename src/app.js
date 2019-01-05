@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import PostController from './controllers/PostController'
 import PingController from './controllers/PingController'
-import { dbURL } from './db_config'
+import { getDbURL } from './db_config'
 import UserController from './controllers/UserController'
 import * as admin from 'firebase-admin'
 import firebaseKey from '../private/loginManagerFirebaseKey'
@@ -26,7 +26,7 @@ class App {
   }
 
   async connectDB() {
-    await mongoose.connect(dbURL, { useNewUrlParser: true, autoReconnect: true })
+    await mongoose.connect(getDbURL('manager'), { useNewUrlParser: true, autoReconnect: true })
     console.log('Connected to mongodb')
   }
 

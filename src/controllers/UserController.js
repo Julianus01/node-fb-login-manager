@@ -10,16 +10,6 @@ class UserController {
 
   initRoutes() {
     this.router.patch('/', this.updateUserData)
-    this.router.post('/createOrUpdateUser', this.createOrUpdateUser)
-  }
-
-  createOrUpdateUser = async (req, res) => {
-    try {
-      const { user } = req.body
-      console.log(user)
-    } catch (error) {
-      console.log(error)
-    }
   }
 
   updateUserData = async (req, res) => {
